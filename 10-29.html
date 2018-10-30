@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // 三个类为外星人的 单例
+        let Alien1 = {              //  在变量里面 用 ' ；' 会报错，可以用 ' ，'
+            name: 'E.T',
+            age: 10,
+            sex: '男'
+        }
+        let Alien2 = {
+            name: '德莱尼',
+            age: 6,
+            sex: '女'
+        }
+        let Alien3 = {
+            name: '兽人',
+            age: 20,
+            sex: '男'
+        }
+
+        // 高级单例：用一个封闭空间来写一个单例的内容，里面写上单例的内容，
+        // return 后输出的这个单例需要输出的内容
+        let Alien = (function () {      // 在函数中 每行后面不能用','   不写标点或者写';'
+            let name = '德莱尼';
+            let age = 6;
+            let sex = '女';
+            function 纳鲁之光() {
+                能够救人
+            }
+            function 不死之身() {
+                免疫伤害
+            }
+            return {
+                name,
+                age,
+                纳鲁之光
+            }
+        })();
+
+        // 工厂模式: 先写一个函数作为（加工机器），然后输入内容（放入加工内容）
+        function person(name, age, sex) { //工厂模式（外界也有人说这叫构造函数）
+            let obj = {}
+            obj.name = name
+            obj.age = age
+            obj.sex = sex
+            return obj
+        }
+        let a = person('张三', 18, '男')
+        console.log(a)
+        //  构造函数
+        function Person(name, age, sex) {  // 构造函数   在这个位置时 函数名的首字母大写   首字母大写在此处代表  代表是一 类
+            let obj = {};
+            obj.name = name;
+            obj.age = age;
+            obj.sex = sex;
+            return obj;
+        }
+        let p1 = new Person('张三', 18, '男') // 这个位置赋值 加一个new 和 首字母大写的函数名
+        console.log(p1)
+
+        // 面向对象
+        function Person(name, age, sex) {
+            this.name = name;
+            this.age = age;
+            this.sex = sex;
+        }
+        let p1 = new Person('李四', 18, '男'); // p1 都是实例化对象，
+        let p2 = new Person('张三', 19, '男')
+        console.log(p1)
+    </script>
+</body>
+
+</html>
